@@ -32,7 +32,7 @@ public class EventController {
     public ResponseEntity<Page<EventDto>> getAllEvents(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
-        Pageable pageable = PageRequest.of(page, size);
+        Pageable pageable = PageRequest.of(page-1, size);
         Page<EventDto> eventList = eventService.getAllEvents(pageable);
         return ResponseEntity.ok(eventList);
     }
